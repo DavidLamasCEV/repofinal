@@ -4,7 +4,7 @@ import './Input.css';
 const Input = ({type, onChange, placeholder}) => {
     return(
         <input 
-            type="" 
+            type="text" 
             onChange={onChange}
             placeholder={placeholder}
             className={``}

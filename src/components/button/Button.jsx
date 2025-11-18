@@ -5,9 +5,9 @@ import './Button.css';
 const Button = ({type, onClick, children }) => {
   return (
     <button
-      type="Button"
+      type={type}
       className={`btn-${type}`}
-      onClick={() => console.log('Botón clickeado')}>
+      onClick={onClick}>
         {children}
     </button>
   )
