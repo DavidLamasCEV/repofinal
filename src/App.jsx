@@ -4,6 +4,8 @@ import Button from './components/button/Button.jsx'
 import Input from './components/input/input.jsx'
 import './App.css'
 
+// hola caracola
+
 function Landing() {
   const navigate = useNavigate()
   const [text, setText] = useState('')
