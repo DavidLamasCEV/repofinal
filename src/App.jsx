@@ -1,40 +1,61 @@
 import { useState } from 'react'
-import Button from './components/Button/button.jsx';
-import Input from './components/input/input.jsx';
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import Button from './components/button/Button.jsx'
+import Input from './components/input/input.jsx'
 import './App.css'
-import { useNavigate } from 'react-router'; 
 
-
-function App() {
-
-  const navigate = useNavigate();
-  
-  const [text, setText] = useState('');
+function Landing() {
+  const navigate = useNavigate()
+  const [text, setText] = useState('')
 
   const handleClick = () => {
-     navigate("/home")
+    navigate('/home')
   }
 
-  const onChangeInput = (e) => {
-    setText(e.target.value)
+  const onChangeInput = (event) => {
+    setText(event.target.value)
   }
 
   return (
     <div>
-      <div>
-        <Button>
+
+      <div style={{ marginBottom: '1rem' }}>
+        <Button type="primary">
           {text}
-        </Button>
+          </Button> 
       </div>
-      <div>
-        <Input onChange={onChangeInput} />
+      <div style={{ marginBottom: '1rem' }}>
+        <Input
+          type="text"
+          placeholder="Escribe algo..."
+          onChange={onChangeInput}
+        />
       </div>
+
       <div>
-        <Button onClick={handleClick}>
-          ir a home
+        <Button type="primary" onClick={handleClick}>
+          Ir a Home
         </Button>
       </div>
     </div>
+  )
+}
+
+function Home() {
+  return (
+    <div>
+      <h1>Página Home</h1>
+      <p>Has navegado correctamente a /home.</p>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/home" element={<Home />} />
+    </Routes>
   )
 }
 
