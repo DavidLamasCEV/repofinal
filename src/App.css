@@ -1,3 +1,37 @@
+/* =========================================================
+   FUENTES (importación Google)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Shantell+Sans:ital,wght@0,700;1,700&display=swap');
+
+
+.font-shantell {
+  font-family: 'Shantell Sans', sans-serif;
+  font-weight: 400; 
+}
+
+.font-shantell-bold {
+  font-family: 'Shantell Sans', sans-serif;
+  font-weight: 700; 
+}
+
+.font-shantell-extrabold {
+  font-family: 'Shantell Sans', sans-serif;
+  font-weight: 800;
+}
+
+
+.font-luckiest {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.font-source {
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* =========================================================
+   ROOT + LOGO + ANIMACIONES
+   ========================================================= */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -11,20 +45,18 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -33,10 +65,255 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+
+/* =========================================================
+   COMPONENTE BOTÓN
+   ========================================================= */
+.back-button-wrapper {
+  width: 100%;        /* que ocupe todo el ancho del #root */
+  text-align: left;   /* alinear el contenido a la izquierda */
+  margin-top: 1rem;   /* separación con el navbar */
+}
+
+
+
+/* =========================================================
+   FLIP CARD (base)
+   ========================================================= */
+.flip {
+  position: relative;
+  display: block;
+  width: 100%;
+  perspective: 1000px;
+}
+
+.flip > .front,
+.flip > .back {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.flip > .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateX(180deg);
+}
+
+.flip-vertical > .back {
+  transform: rotateX(-180deg);
+}
+
+.flip.flip-vertical:hover > .front {
+  transform: rotateX(180deg);
+}
+
+.flip.flip-vertical:hover > .back {
+  transform: rotateX(0deg);
+}
+
+.flip .front,
+.flip .back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip .front img {
+  max-width: 150px;
+  margin-bottom: 0.5rem;
+}
+
+.flip .front h5,
+.flip .back p {
+  margin: 0;
+  text-align: center;
+}
+
+
+/* =========================================================
+   POKEDEX CARD + ADAPTACIONES
+   ========================================================= */
+
+
+.pokecard {
+  width: 100%;
+}
+
+.pokecard-front,
+.pokecard-back {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.pokecard-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.pokecard-id {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pokecard-name {
+  font-size: 1rem;
+}
+
+.pokecard-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.pokecard-image {
+  max-width: 200px;
+  image-rendering: pixelated;
+}
+
+.pokecard-back {
+  text-align: center;
+}
+
+.pokecard-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #444;
+  max-height: 140px;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   NAVBAR: GENERAL + PILLS + FIXED
+   ========================================================= */
+.navbar-poke {
+  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%);
+}
+
+.navbar-link-pill {
+  border-radius: 999px;
+  padding-inline: 1rem;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.navbar-link-pill.active {
+  background-color: #ffffff;
+  color: #dc2626 !important;
+  font-weight: 600;
+}
+
+.navbar-link-pill:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Navbar fija arriba */
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-fixed .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+
+/* =========================================================
+   NAVBAR: ESTILO BASE LINKS (escritorio)
+   ========================================================= */
+.navbar-poke .nav-link {
+  color: #ffffff !important;
+  padding: 1rem;
+}
+
+@media (min-width: 992px) {
+  .nav-item {
+    padding: 1rem;
+  }
+}
+
+/* =========================================================
+   NAVBAR: MODO MÓVIL (collapse open)
+   ========================================================= */
+@media (max-width: 991.98px) {
+
+  .navbar-poke .navbar-collapse {
+    padding: 0.5rem 0 0.75rem;
+  }
+
+  .navbar-poke .navbar-collapse.show .nav-link {
+    background: hsl(0, 64%, 49%);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar-poke:hover .navbar-collapse.show:hover .nav-link:hover {
+    background: hsl(0, 78%, 56%);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-item {
+    padding: 0.05rem;
+  }
+}
+
+
+/* =========================================================
+   PERFIL: Anular efectos de flip
+   ========================================================= */
+.profile-page .flip:hover .front,
+.profile-page .flip:hover .back {
+  transform: none !important;
+}
+
+/* =========================================================
+   ABOUT: Elementos destacados
+   ========================================================= */
+
+.about-list{
+  font-weight: bold;
+}
+
+.about-list p{
+  font-weight: normal;
+}
+
+.about-list-bold{
+  font-weight: bold;
 }

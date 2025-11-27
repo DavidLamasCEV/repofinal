@@ -8,9 +8,6 @@
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.25s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 8px; 
 }
 
