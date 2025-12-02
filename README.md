@@ -5,7 +5,6 @@ El objetivo del proyecto es practicar la construcción de una **SPA** con compon
 
 La aplicación permite **consultar Pokémon, ver sus detalles, visualizar sus tipos, estadísticas básicas y una imagen oficial** proporcionada por la API. Además, incluye páginas adicionales como **Perfil, Contacto** y un **About** explicando decisiones técnicas.
 
-![Vista de la aplicación](./src/assets/readme/screenshot.png)
 
 
 ---
@@ -32,6 +31,8 @@ La aplicación permite **consultar Pokémon, ver sus detalles, visualizar sus ti
 - **Cada Pokémon se muestra con una tarjeta personalizada.**
 - **Incluye una imagen, su ID formateado y su nombre.**
 
+![Listado](./src/assets/readme/principal.png)
+
 ### ✔ Página de detalles
 Cada Pokémon tiene una vista propia con:
 - Nombre e ID formateado.
@@ -42,20 +43,28 @@ Cada Pokémon tiene una vista propia con:
 - Número de habilidades registradas.
 - Botón “Volver al inicio” integrado con React Router.
 
+![Listado](./src/assets/readme/detalles.png)
+
 ### ✔ Navbar con diseño adaptado
 - Ícono personalizado (Pokéball importada desde `/assets`).
 - Colores adaptados al estilo de la app.
 - Navegación entre página principal, About, Perfil y Contacto.
+
+![Listado](./src/assets/readme/navbar.png)
 
 ### ✔ Página Perfil
 - Datos simulados del usuario: nombre, edad, profesión, Pokémon favorito, etc.
 - Uso de badges personalizados y Google Fonts.
 - Imagen de perfil importada desde assets.
 
+![Listado](./src/assets/readme/perfil.png)
+
 ### ✔ Página Contacto
 - Formulario con campos básicos controlados por React.
 - Validación simple.
 - Diseño con Bootstrap.
+
+![Listado](./src/assets/readme/contacto.png)
 
 ### ✔ Página About
 Incluye explicación del proyecto:
@@ -63,6 +72,8 @@ Incluye explicación del proyecto:
 - Arquitectura general.
 - Decisiones de diseño.
 - Mejoras pendientes.
+
+![Listado](./src/assets/readme/about.png)
 
 ---
 
