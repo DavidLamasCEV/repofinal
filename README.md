@@ -5,6 +5,9 @@ El objetivo del proyecto es practicar la construcción de una **SPA** con compon
 
 La aplicación permite **consultar Pokémon, ver sus detalles, visualizar sus tipos, estadísticas básicas y una imagen oficial** proporcionada por la API. Además, incluye páginas adicionales como **Perfil, Contacto** y un **About** explicando decisiones técnicas.
 
+![Vista de la aplicación](./src/assets/readme/screenshot.png)
+
+
 ---
 
 ## 1. Tecnologías utilizadas
