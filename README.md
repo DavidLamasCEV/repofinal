@@ -1,9 +1,9 @@
 # PokéApp – Proyecto React + Vite + PokéAPI
 
 PokéApp es una aplicación desarrollada en **React + Vite** que consume datos en tiempo real desde la **PokéAPI**.  
-El objetivo del proyecto es practicar la construcción de una SPA con componentes reutilizables, navegación mediante React Router, consumo de APIs externas y aplicación de estilos con Bootstrap y CSS personalizado.
+El objetivo del proyecto es practicar la construcción de una **SPA** con componentes reutilizables, navegación mediante **React Router**, consumo de **APIs externas** y aplicación de estilos con **Bootstrap** y **CSS personalizado**.
 
-La aplicación permite consultar Pokémon, ver sus detalles, visualizar sus tipos, estadísticas básicas y una imagen oficial proporcionada por la API. Además, incluye páginas adicionales como Perfil, Contacto y un About explicando decisiones técnicas.
+La aplicación permite **consultar Pokémon, ver sus detalles, visualizar sus tipos, estadísticas básicas y una imagen oficial** proporcionada por la API. Además, incluye páginas adicionales como **Perfil, Contacto** y un **About** explicando decisiones técnicas.
 
 ---
 
@@ -25,9 +25,9 @@ La aplicación permite consultar Pokémon, ver sus detalles, visualizar sus tipo
 ## 2. Funcionalidades principales
 
 ### ✔ Listado de Pokémon
-- Se cargan los Pokémon directamente desde la PokéAPI.
-- Cada Pokémon se muestra con una tarjeta personalizada.
-- Incluye una imagen, su ID formateado y su nombre.
+- **Se cargan los Pokémon directamente desde la PokéAPI.**
+- **Cada Pokémon se muestra con una tarjeta personalizada.**
+- **Incluye una imagen, su ID formateado y su nombre.**
 
 ### ✔ Página de detalles
 Cada Pokémon tiene una vista propia con:
@@ -114,7 +114,7 @@ http://localhost:5173/
 
 ## 5. Autor
 
-Proyecto desarrollado por **David** como práctica de React, Bootstrap y consumo de APIs REST.
+Proyecto desarrollado por **David Lamas - TSAPP2MA2526**
 
 ---
 
