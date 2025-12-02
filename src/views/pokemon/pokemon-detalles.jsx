@@ -131,7 +131,7 @@ const PokemonDetalles = () => {
                   }
                   alt={pokemon.name}
                   className="img-fluid"
-                  style={{ maxHeight: "200px" }}
+                  style={{ maxHeight: "300px" }}
                 />
               </div>
 

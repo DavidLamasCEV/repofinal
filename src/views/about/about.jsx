@@ -82,16 +82,12 @@ function About() {
       <section className="mb-5">
         <h2 className="h4 mb-3"><i className="bi bi-lightbulb me-2"></i>Líneas de mejora</h2>
         <div className="row row-cols-md-1">
-          <div className="col"><div className="alert alert-warning">Filtros y búsqueda para los Pokémon.</div></div>
-          <div className="col"><div className="alert alert-warning">Favoritos con almacenamiento local.</div></div>
-          <div className="col"><div className="alert alert-warning">Accesibilidad (textos alternativos, navegación con teclado).</div></div>
-          <div className="col"><div className="alert alert-warning">Interfaz multilenguaje.</div></div>
+          <div className="col"><div className="alert alert-warning about-list-bold">Filtros y búsqueda para los Pokémon.</div></div>
+          <div className="col"><div className="alert alert-warning about-list-bold">Favoritos con almacenamiento local.</div></div>
+          <div className="col"><div className="alert alert-warning about-list-bold">Accesibilidad (textos alternativos, navegación con teclado).</div></div>
+          <div className="col"><div className="alert alert-warning about-list-bold">Interfaz multilenguaje.</div></div>
         </div>
       </section>   
-
-      <p className="text-muted text-center">
-        💡 Esta app es un ejercicio completo para practicar React+Vite.
-      </p>
     </div>
   );
 }

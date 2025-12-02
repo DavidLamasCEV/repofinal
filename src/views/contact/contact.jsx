@@ -1,19 +1,45 @@
 import { useState } from "react";
+import Button from "../../components/button/Button";
+
 
 function Contact() {
   const [formStatus, setFormStatus] = useState("");
+  const [submittedData, setSubmittedData] = useState(null);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("handleSubmit se ha ejecutado");
 
     const formData = new FormData(event.target);
     const nombre = formData.get("nombre");
+    const email = formData.get("email");
+    const motivo = formData.get("motivo");
+    const mensaje = formData.get("mensaje");
+    
+    console.log("Datos del formulario:", { nombre, email, motivo, mensaje });
 
     setFormStatus(
       `Gracias, ${nombre || "entrenador/a"}. He recibido tu mensaje correctamente.`
     );
 
+    // Guardamos un resumen de los datos enviados
+    setSubmittedData({
+      nombre: nombre || "Sin nombre",
+      email,
+      motivo,
+      mensaje,
+    });
+
+    console.log("submittedData guardado:", {
+      nombre: nombre || "Sin nombre",
+      email,
+      motivo,
+      mensaje,
+    });
+
     event.target.reset();
+
   };
 
   return (
@@ -83,9 +109,10 @@ function Contact() {
               ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <Button type="primary" htmlType="submit">
               Enviar mensaje
-            </button>
+            </Button>
+
           </form>
 
           {formStatus && (
@@ -93,6 +120,27 @@ function Contact() {
               {formStatus}
             </div>
           )}
+          {submittedData && (
+            <div className="alert alert-warning border-warning shadow-sm mt-4">
+              <h5 className="alert-heading mb-3">Resumen de tu mensaje</h5>
+
+              <ul className="list-unstyled mb-0">
+                <li className="mb-2">
+                  <strong>Nombre:</strong> {submittedData.nombre}
+                </li>
+                <li className="mb-2">
+                  <strong>Email:</strong> {submittedData.email}
+                </li>
+                <li className="mb-2">
+                  <strong>Motivo:</strong> {submittedData.motivo}
+                </li>
+                <li>
+                  <strong>Mensaje:</strong> {submittedData.mensaje}
+                </li>
+              </ul>
+            </div>
+          )}
+
         </div>
       </div>
     </div>

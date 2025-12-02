@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"; 
-import PokemonCard from "../../components/pokemon-card/pokemon-card"; 
+import PokemonCard from "../../components/pokemon-card/pokemon-card";
+import Button from "../../components/button/Button";
 
 const PokemonList = () => {
 // Estados principales de la página. 
@@ -12,13 +13,25 @@ const PokemonList = () => {
 // loading y error los usamos por si tarda o falla la API
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  // página actual
+  const [page, setPage] = useState(0);
+  // pokémon por página 
+  const pageSize = 12; 
+
+  const start = page * pageSize;
+  const end = start + pageSize;
+  const paginatedPokemons = pokemons.slice(start, end);
+
+  const totalPages = Math.ceil(pokemons.length / pageSize);
+
+
 
 // Este useEffect se ejecuta solo 1 vez (cuando se carga la página).
 // En esta petición NO viene la descripción en español, eso lo hacemos después.
   useEffect(() => {
     axios
     // Aquí pido a la API la lista básica de los 151 Pokémon.
-      .get("https://pokeapi.co/api/v2/pokemon?limit=151")
+      .get("https://pokeapi.co/api/v2/pokemon?limit=1025")
       .then((response) => {
         // Si todo va bien, guardo en pokemons la lista que devuelve la API.
         setPokemons(response.data.results);
@@ -96,31 +109,47 @@ MDN Web docs:
       {error && <p className="text-danger">ERROR cargando la API.</p>}
 
       {!loading && !error && (
-        <div className="row row-cols-2 row-cols-md-4 g-3">
+        <>
+          <div className="row row-cols-2 row-cols-md-3 g-3">
             {/* 
                 Recorro la lista de pokémon y pinto una tarjeta para cada uno 
                 A cada tarjeta le paso: id, nombre y la descripción en español (si ya ha llegado).
-            */} 
+            */}
 
-          {pokemons.map((pokemon, index) => {
-            const id = index + 1;
-            const description = descriptions[id];
-            {/* La descripción puede tardar un poco, así que al principio será "undefined".
-                PokemonCard ya sabe mostrar un texto de "Cargando..." si falta.
-            */} 
+            {paginatedPokemons.map((pokemon, index) => {
+              const id = start + index + 1;
+              const description = descriptions[id];
+              {/* La descripción puede tardar un poco, así que al principio será "undefined".
+                  PokemonCard ya sabe mostrar un texto de "Cargando..." si falta.
+              */}
 
-            return (
-              <div className="col font-shantell" key={id}>
+              return (
+                <div className="col font-shantell" key={id}>
+                  <PokemonCard
+                    id={id}
+                    name={pokemon.name}
+                    description={description}
+                  />
+                </div>
+              );
+            })}
+          </div>
 
-                <PokemonCard
-                  id={id}
-                  name={pokemon.name}
-                  description={description}
-                />
-              </div>
-            );
-          })}
-        </div>
+          {/* Botones de paginación */}
+          <div className="d-flex justify-content-center gap-3 my-4">
+            {page > 0 && (
+              <Button type="primary" onClick={() => setPage(page - 1)}>
+                Anterior página
+              </Button>
+            )}
+
+            {page < totalPages - 1 && (
+              <Button type="primary" onClick={() => setPage(page + 1)}>
+                Siguiente página
+              </Button>
+            )}
+          </div>
+        </>
       )}
     </div>
   );

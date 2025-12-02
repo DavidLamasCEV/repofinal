@@ -245,7 +245,14 @@ const Profile = () => {
                     <div className="mb-2">
                       <strong>Sitio web:</strong>
                       <br />
-                      <span>{user.web}</span>
+                      <a 
+                        href={user.web} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary text-decoration-underline"
+                      >
+                        Portfolio
+                      </a>
                     </div>
 
                     <div className="mb-0">
@@ -291,7 +298,14 @@ const Profile = () => {
                 <div className="card bg-light-subtle h-100">
                   <div className="card-body">
                     <h3 className="h5 mb-2">Organización</h3>
-                    <p className="mb-1">{user.empresa}</p>
+                      <a 
+                        href={user.linkEmpresa} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary text-decoration-underline"
+                      >
+                        {user.empresa}
+                      </a>
                     <p className="text-muted mb-0">Centro Pokémon oficial</p>
                   </div>
                 </div>

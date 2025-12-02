@@ -185,7 +185,7 @@
 }
 
 .pokecard-image {
-  max-width: 200px;
+  width: 150px;
   image-rendering: pixelated;
 }
 

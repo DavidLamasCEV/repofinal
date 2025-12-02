@@ -1,9 +1,17 @@
 import { Link, useLocation, NavLink } from "react-router-dom";
+import PokeballIcon from "../../assets/pokeball.svg";
 
 // Navbar principal de la aplicación.
-// Uso useLocation para saber en qué ruta estoy y así marcar el enlace activo.
 const Navbar = () => {
+  // Uso useLocation para saber en qué ruta estoy y así marcar el enlace activo.
   const location = useLocation();
+  // Cuando navbar esta abierto y desplegado, cierro si le doy a un botón
+  const closeMenu = () => {
+  const menu = document.getElementById("navbarNav");
+    if (menu && menu.classList.contains("show")) {
+      menu.classList.remove("show"); // cierra el menú desplegado
+    }
+  };
 
   // Función sencilla para comprobar si la ruta actual coincide
   // con la ruta del enlace. Si coincide, añadimos la clase "active".
@@ -21,11 +29,17 @@ const Navbar = () => {
         <Link to="/" className="navbar-brand d-flex align-items-center gap-2">
           <div
             className="bg-white rounded-circle d-flex align-items-center justify-content-center"
-            style={{ width: "36px", height: "36px" }}
+            style={{ width: "40px", height: "40px" }}
           >
-            <span style={{ fontSize: "1.4rem" }}>⚡</span>
+            <img
+              src={PokeballIcon}
+              alt="Pokéball"
+              style={{ width: "30px", height: "30px", objectFit: "contain" }}
+            />
           </div>
-          <span style={{ color: "#ffffffff" }}>PokéApp</span>
+          <span className="font-shantell-bold" style={{ color: "#ffffffff" }}>
+            PokéApp
+          </span>
         </Link>
 
         {/* Botón hamburguesa para móviles (clásico de Bootstrap). */}
@@ -45,28 +59,29 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                    <NavLink to="/" end className="nav-link font-shantell">
+                    <NavLink to="/" end className="nav-link font-shantell" onClick={closeMenu}>
                     Pokémon
                     </NavLink>
                 </li>
 
                 <li className="nav-item">
-                    <NavLink to="/profile" className="nav-link font-shantell">
+                    <NavLink to="/profile" className="nav-link font-shantell" onClick={closeMenu}>
                     Perfil
                     </NavLink>
                 </li>
 
                 <li className="nav-item">
-                    <NavLink to="/contact" className="nav-link font-shantell">
-                    Contacto
+                    <NavLink to="/about" className="nav-link font-shantell" onClick={closeMenu}>
+                    About
                     </NavLink>
                 </li>
 
                 <li className="nav-item">
-                    <NavLink to="/about" className="nav-link font-shantell">
-                    About
+                    <NavLink to="/contact" className="nav-link font-shantell" onClick={closeMenu}>
+                    Contacto
                     </NavLink>
                 </li>
+
             </ul>
         </div>
       </div>
